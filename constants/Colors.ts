@@ -1,26 +1,24 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
+// constants/Colors.ts
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+const tintColor = "rgb(240, 161, 208)";
 
-export const Colors = {
+export default {
   light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
+    black: "#000000",
+    white: "#fcfcfc",
+    gray: "#d3d3d3",
+    blue: "#8ab4f8",
+    tintColor: tintColor,
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+    black: "#fcfcfc",
+    white: "#000000",
+    gray: "#999999",
+    blue: "#5c8df6",
+    tintColor: tintColor,
   },
+  tintColor: tintColor, // para uso directo como estás haciendo ahora
+  gray: "#d3d3d3", // color por defecto
+  white: "#ffffff", // fondo base
+  blue: "#8ab4f8", // azul para entretenimiento
 };
