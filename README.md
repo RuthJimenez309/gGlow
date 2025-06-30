@@ -1,4 +1,5 @@
-# Welcome to your Expo app 👋
+# Welcome to your gGlow app 
+achieve a financial goal next year👋
 ![image](https://github.com/user-attachments/assets/e341e874-7506-49cf-b46c-931236b11457)
 
 
