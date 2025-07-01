@@ -1,19 +1,19 @@
+import Colors from "@/constants/Colors";
+import { Feather } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
+  ActivityIndicator,
+  Alert,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
-  Alert,
-  ActivityIndicator,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { Feather } from "@expo/vector-icons";
-import { useRouter } from "expo-router";
-import Colors from "@/constants/Colors";
 
 export default function LoginScreen() {
   const router = useRouter();
@@ -30,11 +30,16 @@ export default function LoginScreen() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/login", {
+      const corsAnywhere = "https://cors-anywhere.herokuapp.com/";
+
+      const yourUrl = "http://localhost:8000/login";
+
+      const response = await fetch(corsAnywhere + yourUrl, {
         method: "POST",
-        headers: {
+        headers: new Headers({
           "Content-Type": "application/json",
-        },
+          "Access-Control-Allow-Origin": "*",
+        }),
         body: JSON.stringify({
           email: email.trim(),
           password: password,
@@ -44,8 +49,11 @@ export default function LoginScreen() {
       const data = await response.json();
 
       if (response.ok) {
-        // Eliminamos el Alert y redirigimos directamente
-        router.replace("/");
+        // Redirigir al index (tabs)
+        router.replace({
+          pathname: "/",
+          params: { refresh: Date.now() }, // Forzar actualización
+        });
       } else {
         Alert.alert("Error", data.detail || "Credenciales incorrectas");
       }

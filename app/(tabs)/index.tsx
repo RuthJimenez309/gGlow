@@ -29,7 +29,7 @@ export default function IndexPage() {
         return Colors.tintColor;
       case "expense":
       case "gasto":
-        return "#EF4444"; // Rojo para gastos
+        return "#ffc8dd";
       case "transferencia":
         return Colors.blue;
       default:
@@ -84,6 +84,7 @@ export default function IndexPage() {
       }
     };
 
+  
     fetchTransactions();
   }, []);
 
@@ -149,8 +150,6 @@ export default function IndexPage() {
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Text style={styles.header}>Hello Ruth, Good Evening</Text>
-
-        {/* 🔄 Recent Transactions Section */}
         <Text style={styles.sectionTitle}>Recent Transactions</Text>
         {loading ? (
           <Text style={styles.loadingText}>Loading transactions...</Text>
@@ -214,42 +213,42 @@ export default function IndexPage() {
           <Text style={styles.noTransactions}>No transactions available.</Text>
         )}
 
-        {/* 🧾 Summary Cards */}
+        {/* Cards */}
         <Text style={styles.sectionTitle}>Summary</Text>
         <View style={styles.cardsContainer}>
           <View style={[styles.card, { backgroundColor: Colors.tintColor }]}>
             <Text style={styles.cardTitle}>Income</Text>
             <Text style={styles.cardAmount}>{formatAmount(totals.income)}</Text>
           </View>
-          <View style={[styles.card, { backgroundColor: "#EF4444" }]}>
+          <View style={[styles.card, { backgroundColor: "#ffc8dd" }]}>
             <Text style={styles.cardTitle}>Expenses</Text>
             <Text style={styles.cardAmount}>
               {formatAmount(totals.expense)}
             </Text>
           </View>
-          <View style={[styles.card, { backgroundColor: Colors.blue }]}>
+          <View style={[styles.card, { backgroundColor: "#ff98Ed" }]}>
             <Text style={styles.cardTitle}>Food</Text>
             <Text style={styles.cardAmount}>{formatAmount(totals.food)}</Text>
           </View>
-          <View style={[styles.card, { backgroundColor: "#F59E0B" }]}>
+          <View style={[styles.card, { backgroundColor: "#ffc8Ed" }]}>
             <Text style={styles.cardTitle}>Transport</Text>
             <Text style={styles.cardAmount}>
               {formatAmount(totals.transport)}
             </Text>
           </View>
-          <View style={[styles.card, { backgroundColor: "#8B5CF6" }]}>
+          <View style={[styles.card, { backgroundColor: "#ffc8dd" }]}>
             <Text style={styles.cardTitle}>Entertainment</Text>
             <Text style={styles.cardAmount}>
               {formatAmount(totals.entertainment)}
             </Text>
           </View>
-          <View style={[styles.card, { backgroundColor: "#10B981" }]}>
+          <View style={[styles.card, { backgroundColor: "#ff98Ed" }]}>
             <Text style={styles.cardTitle}>Health</Text>
             <Text style={styles.cardAmount}>{formatAmount(totals.health)}</Text>
           </View>
         </View>
 
-        {/* 📌 Action Buttons */}
+        {/*Buttons */}
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.buttonSecondary}>
             <Text style={styles.buttonText}>Export Report</Text>
@@ -260,7 +259,7 @@ export default function IndexPage() {
   );
 }
 
-// 🎨 Styles
+// Styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
